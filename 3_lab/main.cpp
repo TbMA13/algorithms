@@ -22,28 +22,17 @@ int main() {
     unsigned int K{0};
     unsigned int L{0};
     unsigned int M{0};
-//    unsigned int x{};
 
-    bool redFlag = false;
     while (pow(3, K) * pow(5, L) * pow(7, M) <= x) {
         while (pow(3, K) * pow(5, L) * pow(7, M) <= x) {
             while (pow(3, K) * pow(5, L) * pow(7, M) <= x) {
-                redFlag = degreeCheck(K, L, M, x);
-//                if (redFlag){
-//                    break;
-//                }
+                degreeCheck(K, L, M, x);
                 M++;
             }
-//            if (redFlag){
-//                break;
-//            }
             degreeCheck(K, L, M, x);
             L++;
             M = 0;
         }
-//        if (redFlag){
-//            break;
-//        }
         K++;
         L = 0;
     }

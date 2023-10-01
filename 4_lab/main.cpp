@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <string>
+//#include <string>
 
 //№4 Сортировка методом прочесывания
 void combSort(std::vector<int> &array, int tempLen) {

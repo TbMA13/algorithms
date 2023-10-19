@@ -9,7 +9,7 @@ class MinHeap(private val mainArray: Array<Int>) {
         this.print()
         println()
         if (mainArray.size > 1) {
-            for (i in ((mainArray.size / 2)) downTo 0)
+            for (i in ((mainArray.size / 2) - 1) downTo 0)
                 heapify(i, mainArray.size)
         }
         for (count in mainArray.indices) {

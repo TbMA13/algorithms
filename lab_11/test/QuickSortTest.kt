@@ -2,7 +2,7 @@ package test
 
 import org.junit.jupiter.api.Assertions.*
 
-class quickSortTest {
+class QuickSortTest {
 
     @org.junit.jupiter.api.Test
     fun quickSort1() {
@@ -18,4 +18,12 @@ class quickSortTest {
         assertEquals(expected, quickSort(test))
     }
 
+    @org.junit.jupiter.api.Test
+    fun elements1000000() {
+        val testList = mutableListOf<Int>()
+        repeat(10000000) {
+            testList.add(kotlin.random.Random.nextInt(-100000, 100000))
+        }
+        assertEquals(testList.sorted(), quickSort(testList))
+    }
 }

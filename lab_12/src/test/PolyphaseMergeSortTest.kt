@@ -45,7 +45,7 @@ class PolyphaseMergeSortTest {
     }
 
     @Test
-    fun elements1000000() {
+    fun elements10000000() {
         val testList = mutableListOf<Int>()
         repeat(10000000) {
             testList.add(kotlin.random.Random.nextInt(-100000, 100000))

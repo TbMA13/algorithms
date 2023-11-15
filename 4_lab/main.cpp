@@ -13,6 +13,7 @@ void combSort(std::vector<int> &array, int tempLen) {
 
 
 int main() {
+    int test[] = {1, 2};
     std::vector<int> targetArray{12, 0, -21, 7};
 //  Заполнение массива
 //    std::string randomNumbers = "087360513546";

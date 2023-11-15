@@ -54,8 +54,10 @@ class MinHeap(private val mainArray: Array<Int>) {
         }
         if (currentIndex != largestIndex) {
             mainArray[currentIndex] = mainArray[largestIndex].also { mainArray[largestIndex] = mainArray[currentIndex] }
+            println(mainArray.joinToString())
             this.heapify(largestIndex, size)
         }
+
     }
 
     fun getSortArray(): Array<Int> {

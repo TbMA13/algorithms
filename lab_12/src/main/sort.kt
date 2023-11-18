@@ -1,4 +1,4 @@
-package src.src.main
+package src.main
 
 fun quickSort(currentArray: MutableList<Int>): MutableList<Int> {
     if (currentArray.size < 2) {
@@ -24,36 +24,6 @@ fun quickSort(currentArray: MutableList<Int>): MutableList<Int> {
     currentArray[firstTemp.size] = mainItem
     for ((index, value) in secondTemp.withIndex()){
         currentArray[index + count] = value
-    }
-    return currentArray
-}
-
-fun mergeSort(currentArray: MutableList<Int>): MutableList<Int> {
-    if (currentArray.size > 1) {
-        val divisionSize = if (currentArray.size % 2 == 0) currentArray.size / 2 else currentArray.size / 2 + 1
-        val firstSortArray = mergeSort(currentArray.chunked(divisionSize)[0].toMutableList())
-        val secondSortArray = mergeSort(currentArray.chunked(divisionSize)[1].toMutableList())
-        var i = 0
-        var j = 0
-        var count = 0
-        while (i < firstSortArray.size || j < secondSortArray.size) {
-            if (i < firstSortArray.size && j < secondSortArray.size) {
-                if (firstSortArray[i] < secondSortArray[j]) {
-                    currentArray[count] = firstSortArray[i]
-                    i++
-                } else {
-                    currentArray[count] = secondSortArray[j]
-                    j++
-                }
-            } else if (i < firstSortArray.size) {
-                currentArray[count] = firstSortArray[i]
-                i++
-            } else {
-                currentArray[count] = secondSortArray[j]
-                j++
-            }
-            count++
-        }
     }
     return currentArray
 }

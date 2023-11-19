@@ -6,7 +6,7 @@ import java.nio.file.Path
 
 class HashTable(filePath: Path) {
     private var textFromFile = ""
-    private val array = MutableList<MutableList<Int?>>(120) { mutableListOf(null)}
+    private val array = MutableList(120) { Symbol(null) }
 
     init {
         Files.newBufferedReader(filePath, Charsets.UTF_8).lines().forEach { textFromFile += it + "\n" }
@@ -17,17 +17,25 @@ class HashTable(filePath: Path) {
     private fun outTable() {
         File("data/out.txt").createNewFile()
         var result = "Table:\n"
-        repeat(81) { result += "-"}
+        repeat(50) { result += "-" }
         result += "\n"
         for (i in 0..119) {
-            result += "|${i}:"
-            repeat(3 - i.toString().length) { result += " "}
-            result += array[i][0]?.let { if (textFromFile[it] != '\n') " ${textFromFile[it]} " else " \\n" } ?: "   "
-            if (i in listOf(9, 19, 29, 39, 49, 59, 69, 79, 89, 99, 109, 119)) {
-                result += "|\n"
+            result += "$i:"
+            repeat(4 - i.toString().length) { result += " "}
+            var currentSymbol: Symbol? = array[i]
+            while (currentSymbol?.index != null) {
+                result += "->${ if (textFromFile[currentSymbol.index!!] != '\n') " ${textFromFile[currentSymbol.index!!]} " else " \\n "}"
+                currentSymbol = currentSymbol.nextSymbol
             }
+            result += "\n"
+//            result += "|${i}:"
+//            repeat(3 - i.toString().length) { result += " "}
+//            result += array[i][0]?.let { if (textFromFile[it] != '\n') " ${textFromFile[it]} " else " \\n" } ?: "   "
+//            if (i in listOf(9, 19, 29, 39, 49, 59, 69, 79, 89, 99, 109, 119)) {
+//                result += "|\n"
+//            }
         }
-        repeat(81) { result += "-"}
+        repeat(50) { result += "-" }
 
         result += "\n\nText:\n$textFromFile"
         File("data/out.txt").writeText(result)
@@ -35,14 +43,11 @@ class HashTable(filePath: Path) {
 
     private fun textIndexing() {
         for (index in textFromFile.indices) {
-            var currentHash = hash(textFromFile[index].code)
-            while (array[currentHash][0] != null && textFromFile[array[currentHash][0]!!] != textFromFile[index]) {
-                currentHash = hash(currentHash)
-            }
-            if (array[currentHash][0] == null) {
-                array[currentHash][0] = index
+            val currentHash = hash(textFromFile[index].code)
+            if (array[currentHash].index == null) {
+                array[currentHash].index = index
             } else {
-                array[currentHash].add(index)
+                array[currentHash].addSymbol(index)
             }
         }
     }
@@ -80,7 +85,9 @@ class HashTable(filePath: Path) {
 
 //            else ->
 //                (9 * (inputCode + 7) * (3 * inputCode + 5 + inputCode) + inputCode + 3) % 120
-            else -> {throw Exception("Проблемка...")}
+            else -> {
+                throw Exception("Проблемка...")
+            }
         }
     }
 }

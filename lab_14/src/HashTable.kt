@@ -24,7 +24,7 @@ class HashTable(filePath: Path) {
             repeat(4 - i.toString().length) { result += " "}
             var currentSymbol: Symbol? = array[i]
             while (currentSymbol?.index != null) {
-                result += "->${ if (textFromFile[currentSymbol.index!!] != '\n') " ${textFromFile[currentSymbol.index!!]} " else " \\n "}"
+                result += "->${ if (textFromFile[currentSymbol.index!!] != '\n') " ${textFromFile[currentSymbol.index!!]}(${currentSymbol.index}) " else " \\n(${currentSymbol.index}) "}"
                 currentSymbol = currentSymbol.nextSymbol
             }
             result += "\n"

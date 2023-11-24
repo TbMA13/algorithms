@@ -13,8 +13,8 @@ class BinaryTree(private val mainArray: Array<Int>) {
                 mainArray[mainArray.size - 1 - count].also { mainArray[mainArray.size - 1 - count] = mainArray[0] }
             heapify(0, mainArray.size - count - 1)
         }
-//        println("Куча:")
-//        this.print()
+        println("Куча:")
+        this.print()
     }
 
     private fun print() {

@@ -13,7 +13,7 @@ class PolyphaseMergeSort(private var currentFile: File) {
     private var fileFlag = false
     private var numberIndex = 0
     private var partCount = 0
-    private val s = 2500
+    private val s = 4
     private var mainSize = 0
     private var part = mutableListOf<Int>()
 

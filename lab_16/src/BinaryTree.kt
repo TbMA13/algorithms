@@ -3,10 +3,10 @@ package src
 import kotlin.math.pow
 
 class BinaryTree(private var mainList: MutableList<Int?>) {
+
     private val stack = mutableListOf(0)
 
     constructor(tree: String) : this(mutableListOf<Int?>()) {
-//        val tempArray = arrayOf(0)
         val tempList = mutableListOf<Any>()
         var j = -1
         for (i in tree.indices) {
@@ -27,7 +27,6 @@ class BinaryTree(private var mainList: MutableList<Int?>) {
                 tempList.add(resultNumber)
             }
         }
-//        val mainList = mutableListOf<Int?>()
         var testIndex = 0
         for (i in tempList) {
             when (i) {
@@ -114,7 +113,6 @@ class BinaryTree(private var mainList: MutableList<Int?>) {
             if (currentIndex != largestIndex) {
                 mainList[currentIndex] =
                     mainList[largestIndex].also { mainList[largestIndex] = mainList[currentIndex] }
-//            println(mainArray.joinToString())
                 this.heapify(largestIndex, size)
             }
         }

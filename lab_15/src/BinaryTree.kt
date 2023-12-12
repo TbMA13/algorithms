@@ -55,15 +55,15 @@ class BinaryTree(private var mainList: MutableList<Int?>) {
     }
 
     init {
-        if (mainList.size > 1) {
-            for (i in ((mainList.size / 2) - 1) downTo 0)
-                heapify(i, mainList.size)
-        }
-        for (count in mainList.indices) {
-            mainList[0] =
-                mainList[mainList.size - 1 - count].also { mainList[mainList.size - 1 - count] = mainList[0] }
-            heapify(0, mainList.size - count - 1)
-        }
+//        if (mainList.size > 1) {
+//            for (i in ((mainList.size / 2) - 1) downTo 0)
+//                heapify(i, mainList.size)
+//        }
+//        for (count in mainList.indices) {
+//            mainList[0] =
+//                mainList[mainList.size - 1 - count].also { mainList[mainList.size - 1 - count] = mainList[0] }
+//            heapify(0, mainList.size - count - 1)
+//        }
         println("Куча:")
         this.print()
     }

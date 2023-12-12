@@ -33,7 +33,7 @@ fun radixSort(array: Array<Int>) {
         basesSizes = Array(10) { 0 }
         bases = Array(10) { Array(array.size) { null } }
     }
-        basesSizes[0] = array.size - 1
+    basesSizes[0] = array.size - 1
     for (number in array) {
         if (number < 0) {
             bases[0][basesSizes[0]] = number

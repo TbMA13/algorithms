@@ -14,7 +14,7 @@ fun randomWriteInFile(count: Int, min: Int, max: Int) {
 }
 
 fun main() {
-    randomWriteInFile(10000, -100000, 100000)
+    randomWriteInFile(12, -1000, 1000)
     val file = File(FILE_PATH)
     val testSort = PolyphaseMergeSort(file)
 }

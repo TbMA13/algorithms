@@ -1,13 +1,13 @@
 import src.BinaryTree
 
 fun main() {
-    val testObj = BinaryTree(mutableListOf(32, 423, 0, 3, 24, 54, 23, 456))
-    println(testObj.getSortArray().joinToString())
-    testObj.preOrder()
-    println()
-    testObj.inOrder()
-    println()
-    testObj.postOrder()
+//    val testObj = BinaryTree(mutableListOf(32, 423, 0, 3, 24, 54, 23, 456))
+//    println(testObj.getSortArray().joinToString())
+//    testObj.preOrder()
+//    println()
+//    testObj.inOrder()
+//    println()
+//    testObj.postOrder()
 
     println("\n---------------------------\n")
 
